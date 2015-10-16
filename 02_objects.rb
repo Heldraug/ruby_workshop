@@ -1,0 +1,6 @@
+puts('This is a string'.reverse)
+puts(1.odd?)
+puts(1.25.denominator)
+puts(/A\d+/.match 'A01164096')
+puts([1, 2, 3, 4, 5].shuffle)
+puts({key_a: 1, key_b: 2}.merge({key_b: 2.5, key_c: 3}))
