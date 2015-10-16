@@ -1,0 +1,7 @@
+(Work in progress)
+
+Read this after the crash course. If you're interested in learning more, this
+is were you continue your Ruby path.
+
+= References
+= Bibliography
