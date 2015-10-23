@@ -1,3 +1,5 @@
+require 'awesome_print'
+
 ap('This is a string'.reverse)
 ap(1.odd?)
 ap(1.25.denominator)
