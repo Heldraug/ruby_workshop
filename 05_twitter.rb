@@ -1,5 +1,5 @@
 require 'oauth'
-require 'pp'
+require 'awesome_print'
 require 'pry'
 require 'json'
 
@@ -39,6 +39,6 @@ class TwitterClient
 end
 
 twitter = TwitterClient.new
-pp twitter.home_timeline
-pp twitter.user_timeline
-pp twitter.retweets
+ap twitter.home_timeline
+ap twitter.user_timeline
+ap twitter.retweets
