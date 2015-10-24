@@ -1,6 +1,6 @@
 require 'json'
 require 'awesome_print'
-require 'HTTParty'
+require 'httparty'
 
 class Client
   include HTTParty
