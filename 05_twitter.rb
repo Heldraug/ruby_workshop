@@ -11,10 +11,10 @@ class TwitterClient
   # OAUTH_SECRET = 'swhYIdrZwBkYClUl7ItxKMZYulvpmFX8AYrihC4Ty0eTY'
 
   # @nsworkshop2
-  CONSUMER_KEY = 'vbho2Ty63lhHSSWfmMJVGy5FR'
-  CONSUMER_SECRET = 'GAh7ODImYpTWEnOzurUZQOkNREL7IFcsVmafBxOTxwFecE7pKE'
-  OAUTH_KEY = '3985196954-MlrNxi0GU0xfDdK5NzpmWQSRSvP3Sf8hBDf6p7Z'
-  OAUTH_SECRET = 'vVlu39uqN1GETWaGvgcLmUBGNtRtgnbm39YidmS0oTpbN'
+  # CONSUMER_KEY = 'vbho2Ty63lhHSSWfmMJVGy5FR'
+  # CONSUMER_SECRET = 'GAh7ODImYpTWEnOzurUZQOkNREL7IFcsVmafBxOTxwFecE7pKE'
+  # OAUTH_KEY = '3985196954-MlrNxi0GU0xfDdK5NzpmWQSRSvP3Sf8hBDf6p7Z'
+  # OAUTH_SECRET = 'vVlu39uqN1GETWaGvgcLmUBGNtRtgnbm39YidmS0oTpbN'
 
   BASE_URI = 'https://api.twitter.com/1.1'
 
@@ -29,19 +29,23 @@ class TwitterClient
   end
 
   def home_timeline
-    query_api(:get, '/statuses/home_timeline.json')
+    response = query_api(:get, '/statuses/home_timeline.json')
+    response.map{|tweet| "@#{tweet['user']['screen_name']}: #{tweet['text']}"}
   end
 
   def user_timeline
-    query_api(:get, '/statuses/user_timeline.json')
+    response = query_api(:get, '/statuses/user_timeline.json')
+    response.map{|tweet| "@#{tweet['user']['screen_name']}: #{tweet['text']}"}
   end
 
   def retweets
-    query_api(:get, '/statuses/retweets_of_me.json')
+    response = query_api(:get, '/statuses/retweets_of_me.json')
+    response.map{|tweet| "@#{tweet['user']['screen_name']}: #{tweet['text']}"}
   end
 
   def post(status)
-    query_api(:post, '/statuses/update.json', status: status)
+    response query_api(:post, '/statuses/update.json', status: status)
+    !response.nil?
   end
 end
 

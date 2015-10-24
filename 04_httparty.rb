@@ -2,6 +2,14 @@ require 'json'
 require 'awesome_print'
 require 'httparty'
 
+# Routes
+#   GET api/phrases.json
+#   GET api/phrases/random.json
+#   GET api/phrases/(:id).json
+#   POST api/phrases.json
+#   PATCH api/phrases/(:id).json
+#   DELETE api/phrases/(:id).json
+
 class Client
   include HTTParty
 
