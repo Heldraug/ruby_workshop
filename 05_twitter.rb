@@ -4,10 +4,17 @@ require 'pry'
 require 'json'
 
 class TwitterClient
-  CONSUMER_KEY = 'DMEbBEWtTXp20zVcSbhw'
-  CONSUMER_SECRET = '4KogGy7iMQd9BmNR5lGRcW0iF5pT87zzLqm6Inm0SY'
-  OAUTH_KEY = '38909975-Pov2SpqASfpKNCt5kKYxcjlpBmRFU6zQ0riwdSIg9'
-  OAUTH_SECRET = 'DR8L7qqtnpSOQQ9nFU9H3a0oqvbF25z7uO5UpKh0pg'
+  # @nsworkshop1
+  # CONSUMER_KEY = 'l2TQg9K2xjRJ2WvOh5MXUvGHl'
+  # CONSUMER_SECRET = 'rpHUCucSqEXOKLzPKN8IPBgRqDTzWx5yS3TymgTmTHOBkiFXD6'
+  # OAUTH_KEY = '3996479112-GDjfiQCUVqCVR4pZN7hZeInTiYYBOEP0wtFfunr'
+  # OAUTH_SECRET = 'swhYIdrZwBkYClUl7ItxKMZYulvpmFX8AYrihC4Ty0eTY'
+
+  # @nsworkshop2
+  CONSUMER_KEY = 'vbho2Ty63lhHSSWfmMJVGy5FR'
+  CONSUMER_SECRET = 'GAh7ODImYpTWEnOzurUZQOkNREL7IFcsVmafBxOTxwFecE7pKE'
+  OAUTH_KEY = '3985196954-MlrNxi0GU0xfDdK5NzpmWQSRSvP3Sf8hBDf6p7Z'
+  OAUTH_SECRET = 'vVlu39uqN1GETWaGvgcLmUBGNtRtgnbm39YidmS0oTpbN'
 
   BASE_URI = 'https://api.twitter.com/1.1'
 
@@ -17,8 +24,8 @@ class TwitterClient
     @client = OAuth::AccessToken.from_hash(consumer, token_hash)
   end
 
-  def query_api(method, path)
-    JSON.parse(@client.request(method, "#{BASE_URI}#{path}").body)
+  def query_api(method, path, options = nil)
+    JSON.parse(@client.request(method, "#{BASE_URI}#{path}", options).body)
   end
 
   def home_timeline
@@ -34,7 +41,7 @@ class TwitterClient
   end
 
   def post(status)
-    query_api(:post, '/statuses/update.json')
+    query_api(:post, '/statuses/update.json', status: status)
   end
 end
 

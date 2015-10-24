@@ -1,7 +1,5 @@
-(Work in progress)
+= *NS*: Ruby Crash Course
 
-Read this after the crash course. If you're interested in learning more, this
-is were you continue your Ruby path.
+Estos son los archivos que necesitas para el taller de Ruby.
 
-= References
-= Bibliography
+ $ git clone https://github.com/Heldraug/ruby_workshop.git
